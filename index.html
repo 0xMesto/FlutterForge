@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlutterForge - Expert Flutter App Development by Mohammed & Ilyas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #4f46e5;
+            --accent-color: #818cf8;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .navbar-nav .nav-link {
+            color: #4a4a4a;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color);
+        }
+        .hero-section {
+            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+            color: white;
+            padding: 120px 0;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+        .service-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .portfolio-item {
+            overflow: hidden;
+            position: relative;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .portfolio-item img {
+            transition: transform 0.5s ease;
+        }
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(99, 102, 241, 0.9);
+            color: white;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        .testimonial-card {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .team-member {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+        .team-member img {
+            transition: transform 0.3s ease;
+        }
+        .team-member:hover img {
+            transform: scale(1.1);
+        }
+        .team-member-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(99, 102, 241, 0.9);
+            color: white;
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .team-member:hover .team-member-info {
+            transform: translateY(0);
+        }
+        #contact {
+            background: linear-gradient(135deg, #ddd6fe, #c7d2fe);
+            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+            padding-top: 150px;
+        }
+        .social-icon {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin: 0 10px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .social-icon:hover {
+            color: var(--secondary-color);
+            transform: scale(1.2);
+        }
+        .floating-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+        .floating-button:hover {
+            transform: scale(1.1);
+        }
+        .custom-shape-divider-bottom-1682424102 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        .custom-shape-divider-bottom-1682424102 svg {
+            position: relative;
+            display: block;
+            width: calc(144% + 1.3px);
+            height: 110px;
+        }
+        .custom-shape-divider-bottom-1682424102 .shape-fill {
+            fill: #FFFFFF;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <span class="text-primary fw-bold">Flutter</span>Forge
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center position-relative">
+        <div class="container">
+            <h1 class="display-3 fw-bold mb-4" data-aos="fade-up">Crafting Exceptional Flutter Apps</h1>
+            <p class="lead mb-5" data-aos="fade-up" data-aos-delay="100">Transform your ideas into stunning, high-performance mobile applications with our expert Flutter development team.</p>
+            <a href="#contact" class="btn btn-light btn-lg px-5 py-3 rounded-pill" data-aos="fade-up" data-aos-delay="200">Get Started</a>
+        </div>
+        <div class="custom-shape-divider-bottom-1682424102">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Our Services</h2>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100 service-card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-mobile-alt fa-3x text-primary mb-3"></i>
+                            <h3 class="card-title">Mobile App Development</h3>
+                            <p class="card-text">We build beautiful, responsive, and high-performance mobile apps using Flutter for both iOS and Android platforms.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100 service-card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-paint-brush fa-3x text-primary mb-3"></i>
+                            <h3 class="card-title">UI/UX Design</h3>
+                            <p class="card-text">Our team creates intuitive and visually appealing user interfaces that enhance user experience and engagement.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card h-100 service-card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-code fa-3x text-primary mb-3"></i>
+                            <h3 class="card-title">Flutter Consulting</h3>
+                            <p class="card-text">We provide expert advice and support to help you leverage the full potential of Flutter for your projects.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Our Latest Projects</h2>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="portfolio-item">
+                        <img src="https://fakeimg.pl/400x300/6366f1/ffffff?text=Fitness+App" alt="Fitness Tracker App" class="img-fluid">
+                        <div class="portfolio-overlay">
+                            <div>
+                                <h4>Fitness Tracker App</h4>
+                                <p>A comprehensive fitness tracking application built with Flutter.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="portfolio-item">
+                        <img src="https://fakeimg.pl/400x300/4f46e5/ffffff?text=E-commerce+App" alt="E-commerce Platform" class="img-fluid">
+                        <div class="portfolio-overlay">
+                            <div>
+                                <h4>E-commerce Platform</h4>
+                                <p>A feature-rich e-commerce app with seamless payment integration.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="portfolio-item">
+                        <img src="https://fakeimg.pl/400x300/818cf8/ffffff?text=Social+Media+Dashboard" alt="Social Media Dashboard" class="img-fluid">
+                        <div class="portfolio-overlay">
+                            <div>
+                                <h4>Social Media Dashboard</h4>
+                                <p>An intuitive dashboard for managing multiple social media accounts.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">What Our Clients Say</h2>
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-card">
+                        <p class="mb-3">"FlutterForge delivered an exceptional app that exceeded our expectations. Their expertise in Flutter is unmatched!"</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://fakeimg.pl/60x60/6366f1/ffffff?text=JD" alt="Client 1" class="rounded-circle me-3">
+                            <div>
+                                <h5 class="mb-0">John Doe</h5>
+                                <small class="text-muted">CEO, TechCorp</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-card">
+                        <p class="mb-3">"Working with FlutterForge was a breeze. They turned our concept into a stunning, high-performance app in record time."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://fakeimg.pl/60x60/4f46e5/ffffff?text=JS" alt="Client 2" class="rounded-circle me-3">
+                            <div>
+                                <h5 class="mb-0">Jane Smith</h5>
+                                <small class="text-muted">Founder, StartUp Inc</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="testimonial-card">
+                        <p class="mb-3">"The team at FlutterForge are true professionals. Their attention to detail and commitment to quality is impressive."</p>
+                        <div class="d-flex align-items-center">
+<img src="https://fakeimg.pl/60x60/818cf8/ffffff?text=MJ" alt="Client 3" class="rounded-circle me-3">
+                            <div>
+                                <h5 class="mb-0">Mike Johnson</h5>
+                                <small class="text-muted">CTO, InnovateTech</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">About FlutterForge</h2>
+            <div class="row align-items-center">
+                <div class="col-md-6" data-aos="fade-right">
+                    <p class="lead">FlutterForge is a leading software agency specializing in mobile app development using the Flutter framework. Our mission is to craft exceptional digital experiences that empower businesses and delight users.</p>
+                    <p>With a team of passionate developers and designers, we bring creativity and technical expertise to every project we undertake.</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="row g-4">
+                        <div class="col-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="team-member">
+                                <img src="https://fakeimg.pl/300x300/6366f1/ffffff?text=Mohammed+A" alt="Mohammed Alouani" class="img-fluid">
+                                <div class="team-member-info">
+                                    <h5>Mohammed Alouani</h5>
+                                    <p>Co-founder & Lead Developer</p>
+                                    <small>License in Math & Computer Science</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6" data-aos="fade-up" data-aos-delay="200">
+                            <div class="team-member">
+                                <img src="https://fakeimg.pl/300x300/4f46e5/ffffff?text=Ilyas+Z" alt="Ilyas Ziani" class="img-fluid">
+                                <div class="team-member-info">
+                                    <h5>Ilyas Ziani</h5>
+                                    <p>Co-founder & Software Engineer</p>
+                                    <small>Graduating in Software Engineering</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Get in Touch</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4 mb-md-0" data-aos="fade-right">
+                    <form id="contactForm">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" id="message" rows="4" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg w-100">Send Message</button>
+                    </form>
+                </div>
+                <div class="col-md-6" data-aos="fade-left">
+                    <div class="bg-white p-4 h-100 d-flex flex-column justify-content-center rounded shadow">
+                        <h4 class="mb-4">Contact Information</h4>
+                        <p><i class="fas fa-map-marker-alt me-2"></i> 123 Flutter St, App City, 12345</p>
+                        <p><i class="fas fa-phone me-2"></i> +1 (123) 456-7890</p>
+                        <p><i class="fas fa-envelope me-2"></i> contact@flutterforge.com</p>
+                        <div class="mt-4">
+                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>FlutterForge</h5>
+                    <p>Crafting exceptional mobile experiences with Flutter.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#services" class="text-white">Services</a></li>
+                        <li><a href="#portfolio" class="text-white">Portfolio</a></li>
+                        <li><a href="#about" class="text-white">About Us</a></li>
+                        <li><a href="#contact" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Newsletter</h5>
+                    <p>Stay updated with our latest news and offers.</p>
+                    <form id="newsletterForm">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p>&copy; 2024 FlutterForge. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Button -->
+    <a href="#contact" class="btn btn-primary btn-lg rounded-circle floating-button">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <!-- AOS (Animate On Scroll) JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message. We will get back to you soon!');
+            this.reset();
+        });
+
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for subscribing to our newsletter!');
+            this.reset();
+        });
+
+        // Navbar color change on scroll
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                document.querySelector('.navbar').classList.add('bg-white', 'shadow-sm');
+            } else {
+                document.querySelector('.navbar').classList.remove('bg-white', 'shadow-sm');
+            }
+        });
+
+        // Dynamic copyright year
+        document.querySelector('footer .text-center p').innerHTML = `&copy; ${new Date().getFullYear()} FlutterForge. All rights reserved.`;
+    </script>
+</body>
+</html>
